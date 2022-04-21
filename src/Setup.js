@@ -26,6 +26,7 @@ export function PlayerSelector (props) {
         </div>
     )
 }
+
 export function CardSelector (props) {
 
     function handleChange (e) {
@@ -36,14 +37,14 @@ export function CardSelector (props) {
         
         <form onChange = {handleChange}>
             <p>{props.name}</p>
-            <input type="radio" value="A" name = {props.name} />
-            <label>A</label><br/>
+            <input type="radio" value="A" name = {props.name} defaultChecked />
+            <label>A</label><br />
             <input type="radio" value="B" name = {props.name} />
-            <label>B</label><br/>
+            <label>B</label><br />
             <input type="radio" value="C" name = {props.name} />
-            <label>C</label><br/>
+            <label>C</label><br />
             <input type="radio" value="D" name = {props.name} />
-            <label>D</label><br/>
+            <label>D</label><br />
         </form>
     ) 
 }
