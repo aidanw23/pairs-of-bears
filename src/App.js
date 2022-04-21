@@ -62,7 +62,7 @@ class App extends React.Component {
           <CardSelector cardValue = {birdVal} onCardChange = {this.handleCardChange} name = "birds" />
           <CardSelector cardValue = {foxVal} onCardChange = {this.handleCardChange} name = "foxes" />
         </div>
-        <div>
+        <div key = {bearVal}>
           <ScoreBoard players = {players}
             bears = {bearVal}/>
         </div>
