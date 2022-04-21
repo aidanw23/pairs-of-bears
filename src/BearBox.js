@@ -20,20 +20,30 @@ export function BearSet (props) {
     const [cPlayer4, setCPlayer4] = useState([0,0,0]);
     const [cScore,setCScore] =useState([0,0,0,0])
 
+
     const [dScore, setDScore] = useState([0,0,0,0])
 
-    const [, updateState] = React.useState();
-    const forceUpdate = React.useCallback(() => updateState({}), []);
-
-
+ 
     useEffect (() => {
-        //console.log("bears changed")
-        console.log(`cp1state is: ${cPlayer1} and cscore is ${cScore}`)
+        console.log("bears changed")
+        cScoreUpdate(cPlayer1, "1")
+        cScoreUpdate(cPlayer2, "2")
+        cScoreUpdate(cPlayer3, "3")
+        cScoreUpdate(cPlayer4, "4")
+    }, [cPlayer1,cPlayer2,cPlayer3,cPlayer4]);
+    
+    function cScoreUpdate (player, strplayer) {
+        let score = player[0] * 2 + player[1] * 5 + player[2] * 8;
+        if (!player.includes(0)) {
+            score += 3;
+        }
+        console.log(`passing ${score}`)
+        scoreStateChange(setCScore, strplayer, score);
 
-    });
+    }
+
 
     function scoreStateChange (setScoreState,playernum, score) {
-        console.log(`scorechanger fired, passed ${score} for ${playernum}`)
         switch (playernum) {
             case "1":
                 setScoreState (prevState => [score, prevState[1], prevState[2], prevState[3]])
@@ -84,13 +94,14 @@ export function BearSet (props) {
         if (props.cardValue === "C"){
             const playerAndGroup = e.target.name.split('%')
 
-            //this stuff is all for affecting the cPlayer states for keeping track for the bonus 3 points
+            //these statements edit cPlayer1 through 4 respectively, changing the array input to the new value
             if(playerAndGroup[1] === "smallGroups1") {
                 switch (playerAndGroup[0]) {
                     case "player1":
-                        setCPlayer1(prevState => ([e.target.value, prevState[1], prevState[2]]));
-                         
-                        console.log(`values set is ${e.target.value}   setting c1 state as ${cPlayer1}`)                     
+                        setCPlayer1(prevState => ([e.target.value, prevState[1], prevState[2]]), () => {
+                            console.log(`values set is ${e.target.value}   setting c1 state as ${cPlayer1}`)
+                        });
+                                             
                         break;
                     case "player2":
                         setCPlayer2(prevState => ([e.target.value, prevState[1], prevState[2]]))
@@ -134,14 +145,6 @@ export function BearSet (props) {
                         break;
                 }
             }   
- 
-            let score = cPlayer1[0] * 2 + cPlayer1[1] * 5 + cPlayer1[2] * 8;
-            if (!cPlayer1.includes(0)) {
-                console.log("Bonus points!")
-                score += 3;
-            }
-            console.log(`passing ${score}`)
-            scoreStateChange(setCScore, playerAndGroup[0].slice(-1), score);
 
         }
         //NOT FINISHED
@@ -150,6 +153,7 @@ export function BearSet (props) {
             console.log(`e.target.name is ${e.target.name}`)
         }
     }
+
 
     return (
         <div>

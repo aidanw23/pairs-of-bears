@@ -21,9 +21,9 @@ export class ScoreBoard extends React.Component {
                 <div>
                     <h1>Aidans Scoreboard of Sadness</h1>
                     <p>Player 1's score is : {this.state.player1}</p>
-                    <p>Player 2's score is : {this.state.player1}</p>
-                    <p>Player 3's score is : {this.state.player1}</p>
-                    <p>Player 4's score is : {this.state.player1}</p>
+                    <p>Player 2's score is : {this.state.player2}</p>
+                    <p>Player 3's score is : {this.state.player3}</p>
+                    <p>Player 4's score is : {this.state.player4}</p>
                 </div>
                 <div>
                     <h1>Bear-ea</h1>
