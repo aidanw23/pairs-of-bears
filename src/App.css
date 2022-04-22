@@ -36,3 +36,37 @@
     transform: rotate(360deg);
   }
 }
+
+.setup-box {
+  display:flex;
+  background-color: rgb(117, 206, 209);
+  width:70%;
+  height: 40%;
+  flex-direction:row;
+  align-items:row;
+}
+
+.animal-box {
+  display:flex;
+  background-color: rgb(117, 206, 209);
+  width:70%;
+  height: 40%;
+  flex-direction:row;
+  align-items:row;
+}
+
+.box-column {
+  background-color: rgb(236, 150, 150);
+  flex: 1 2 auto;
+}
+
+.page-section {
+  background-color:rgb(180, 223, 182);
+  height:60vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+}
+

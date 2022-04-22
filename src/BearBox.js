@@ -5,8 +5,16 @@ import { ReactDOM } from "react";
 BEARBOX COMPONENT
 Bear box will be render 1 to 4 bear elements with inputs depending on card and player count set initially. 
 Each box will handle score differently.
-Score should be raised to parent level and tracked, possibly in side sheet?
+Score should be raised to parent level
+currently A and B score simply using dropdowns, so they handle scores in the handleChange
+C and D have mulitple different groups to be scored so they both manipulate cPlayer1 to show amount of groups.
+scores are then calculated used cPlayer states in functions cScoreUpdate and dScoreUpdate.
 
+
+POSSIBLE TODOS
+handleChange if for C uses cPlayer1 - 4 to set it so smallest groups are first entry in arrays
+and so on. could use different functions to edit the array which would be reusable for D as both 
+score in three different sized groups
 */
 
 export function BearSet (props) {
@@ -26,11 +34,29 @@ export function BearSet (props) {
  
     useEffect (() => {
         console.log("bears changed")
-        cScoreUpdate(cPlayer1, "1")
-        cScoreUpdate(cPlayer2, "2")
-        cScoreUpdate(cPlayer3, "3")
-        cScoreUpdate(cPlayer4, "4")
-    }, [cPlayer1,cPlayer2,cPlayer3,cPlayer4]);
+
+        if (props.cardValue === "A") {
+            props.onScoreChange(aScore)
+        }
+        if (props.cardValue === "B") {
+            props.onScoreChange(bScore)
+        }
+        if (props.cardValue === "C") {
+            cScoreUpdate(cPlayer1, "1")
+            cScoreUpdate(cPlayer2, "2")
+            cScoreUpdate(cPlayer3, "3")
+            cScoreUpdate(cPlayer4, "4")
+            props.onScoreChange(cScore)
+        }
+        if (props.cardValue === "D") {
+            dScoreUpdate(cPlayer1, "1")
+            dScoreUpdate(cPlayer2, "2")
+            dScoreUpdate(cPlayer3, "3")
+            dScoreUpdate(cPlayer4, "4") 
+            props.onScoreChange(dScore)
+        }
+        
+    }, [aScore, bScore, cPlayer1, cPlayer2 , cPlayer3, cPlayer4]);
     
     function cScoreUpdate (player, strplayer) {
         let score = player[0] * 2 + player[1] * 5 + player[2] * 8;
@@ -42,8 +68,15 @@ export function BearSet (props) {
 
     }
 
+    function dScoreUpdate (player, strPlayer) {
+        let score = player[0] * 5 + player[1] * 8 + player[2] * 13;
+        console.log(`passing D score ${score}`)
+        scoreStateChange(setDScore, strPlayer, score);
+        console.log(`dscore: ${dScore}`)
+    }
 
-    function scoreStateChange (setScoreState,playernum, score) {
+
+    function scoreStateChange (setScoreState, playernum, score) {
         switch (playernum) {
             case "1":
                 setScoreState (prevState => [score, prevState[1], prevState[2], prevState[3]])
@@ -98,10 +131,7 @@ export function BearSet (props) {
             if(playerAndGroup[1] === "smallGroups1") {
                 switch (playerAndGroup[0]) {
                     case "player1":
-                        setCPlayer1(prevState => ([e.target.value, prevState[1], prevState[2]]), () => {
-                            console.log(`values set is ${e.target.value}   setting c1 state as ${cPlayer1}`)
-                        });
-                                             
+                        setCPlayer1(prevState => ([e.target.value, prevState[1], prevState[2]]));                    
                         break;
                     case "player2":
                         setCPlayer2(prevState => ([e.target.value, prevState[1], prevState[2]]))
@@ -149,8 +179,56 @@ export function BearSet (props) {
         }
         //NOT FINISHED
         if (props.cardValue === "D"){
-            console.log(`e.target.value is ${e.target.value}`)
-            console.log(`e.target.name is ${e.target.name}`)
+            console.log(`e.target.value is ${e.target.value} and e name is ${e.target.name}`)
+            const playerAndGroup = e.target.name.split('%')
+            //these statements edit cPlayer1 through 4 respectively, changing the array input to the new value
+            if(playerAndGroup[1] === "bigGroups2") {
+                switch (playerAndGroup[0]) {
+                    case "player1":
+                        setCPlayer1(prevState => ([e.target.value, prevState[1], prevState[2]]));                    
+                        break;
+                    case "player2":
+                        setCPlayer2(prevState => ([e.target.value, prevState[1], prevState[2]]))
+                        break;
+                    case "player3":
+                        setCPlayer3(prevState => ([e.target.value, prevState[1], prevState[2]]))
+                        break;
+                    case "player4":
+                        setCPlayer4(prevState => ([e.target.value, prevState[1], prevState[2]]))
+                }
+            } 
+            if (playerAndGroup[1] === "bigGroups3") {
+                switch (playerAndGroup[0]) {
+                    case "player1":
+                        setCPlayer1(prevState => ([prevState[0] ,e.target.value, prevState[2]]))
+                        break;
+                    case "player2":
+                        setCPlayer2(prevState => ([prevState[0], e.target.value, prevState[2]]))
+                        break;
+                    case "player3":
+                        setCPlayer3(prevState => ([prevState[0], e.target.value, prevState[2]]))
+                        break;
+                    case "player4":
+                        setCPlayer4(prevState => ([prevState[0], e.target.value, prevState[2]]))
+                        break;
+                }
+            }  
+            if (playerAndGroup[1] === "bigGroups4") {
+                switch (playerAndGroup[0]) {
+                    case "player1":
+                        setCPlayer1(prevState => ([prevState[0], prevState[1], e.target.value]))
+                        break;
+                    case "player2":
+                        setCPlayer2(prevState => ([prevState[0], prevState[1], e.target.value]))
+                        break;
+                    case "player3":
+                        setCPlayer3(prevState => ([prevState[0], prevState[1], e.target.value]))
+                        break;
+                    case "player4":
+                        setCPlayer4(prevState => ([prevState[0], prevState[1], e.target.value]))
+                        break;
+                }
+            }   
         }
     }
 
@@ -161,13 +239,13 @@ export function BearSet (props) {
             <p>bstate: {bScore}</p>
             <p>cstate: {cPlayer1} {cPlayer2} {cPlayer3} {cPlayer4}</p>
             <p>cscore: {cScore}</p>
-            <form>
+            <p>dscore: {dScore}</p>
+            <div class = "animal-box">
                 <Bear player = "player1" card={props.cardValue} onChange = {handleChange} />
                 {props.playerCount >= 2 && <Bear player = "player2" card={props.cardValue}  onChange = {handleChange}/>}
                 {props.playerCount >= 3 && <Bear player = "player3" card={props.cardValue}  onChange = {handleChange}/>}
                 {props.playerCount >= 4 && <Bear player = "player4" card={props.cardValue}  onChange = {handleChange}/>}
-                <input type ="submit" value ="Score Bears"></input>
-            </form>
+            </div>
         </div>
     )
 
@@ -177,7 +255,7 @@ function Bear (props) {
     return(
         <span>
             {props.card === "A" &&
-                <div>
+                <div class = "box-column">
                     <p>How many pairs of bears for {props.player}?</p>
                     <select name= {props.player + "%bearpairs"} id="bearpairs" onChange = {props.onChange}>
                         <option value={0}>No pairs</option>
@@ -189,7 +267,7 @@ function Bear (props) {
                 </div>}
 
             {props.card === "B" &&
-                <div>
+                <div class = "box-column">
                     <p>How many groups of three for {props.player}?</p>
                         <input type = "number" 
                         name= {props.player + "%bearstrios"} 
@@ -199,7 +277,7 @@ function Bear (props) {
                 </div>}
 
             {props.card === "C" &&
-                <div>
+                <div class = "box-column">
                     <p>Groups for {props.player}</p>
                         <label for = "smallGroups1">Groups of one</label>
                         <input type = "number" 
@@ -223,25 +301,25 @@ function Bear (props) {
                 </div>}
 
             {props.card === "D" &&
-                <div>
+                <div class = "box-column">
                     <p>Groups for {props.player}</p>
                     <form>
                         <label for = "bigGroups2">Groups of two</label>
                         <input type = "number" 
                         id ="bigGroups2" 
-                        name = {props.player +"bigGroups2"} 
+                        name = {props.player +"%bigGroups2"} 
                         onChange = {props.onChange}/><br/>
 
                         <label for = "bigGroups3">Groups of three</label>
                         <input type = "number" 
                         id ="bigGroups3" 
-                        name = {props.player + "bigGroups3"} 
+                        name = {props.player + "%bigGroups3"} 
                         onChange = {props.onChange}/><br/>
 
                         <label for = "bigGroups4">Groups of four</label>
                         <input type = "number" 
                         id ="bigGroups4" 
-                        name = {props.player + "bigGroups4"} 
+                        name = {props.player + "%bigGroups4"} 
                         onChange = {props.onChange}/><br/>
                     </form>
                 </div>}
