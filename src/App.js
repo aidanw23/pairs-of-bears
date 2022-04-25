@@ -68,7 +68,8 @@ class App extends React.Component {
         </div>
         <div class= "page-section">
             <ScoreBoard players = {players}
-              bears = {bearVal}/>
+              bears = {bearVal}
+              elk = {elkVal} />
           </div>
       </div>
     );
