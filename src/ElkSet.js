@@ -146,7 +146,7 @@ function Elk (props) {
     for (let i=1; i <= lines; i++){
         boxes.push(
         <select key = {"elklength" + i} defaultValue ={0} name = {props.player + "%length%" + i} onChange = {onLengthChange}>
-            <option disabled selected value = {0}>---</option>
+            <option disabled  value = {0}>---</option>
             <option value={1}>One</option>
             <option value={2}>Two</option>
             <option value={3}>Three</option>

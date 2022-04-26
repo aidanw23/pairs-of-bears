@@ -3,6 +3,7 @@ import { BearSet } from './BearBox';
 import { ElkSet } from './ElkSet';
 import { SalmonSet } from './SalmonSet';
 import { HawkSet } from './HawkSet'
+import { FoxSet } from './FoxSet';
 
 export function ScoreBoard (props) {
 
@@ -12,7 +13,7 @@ export function ScoreBoard (props) {
     const [elk, setElk] = useState ([]);
     const [salmon, setSalmon] = useState ([]);
     const [birds, setBirds] = useState ([]);
-
+    const [foxes, setFoxes] = useState ([]);
 
     //TODO should I be passsing setBears a func? maybe? it works so idk maybe just leave it
     function handleBearChange (score) {
@@ -29,6 +30,10 @@ export function ScoreBoard (props) {
 
     function handleBirdChange (score) {
         setBirds ([score[0], score[1], score[2], score[3]])
+    }
+
+    function handleFoxChange (score) {
+        setFoxes ([score[0], score[1], score[2], score[3]])
     }
 
     return (
@@ -66,6 +71,13 @@ export function ScoreBoard (props) {
                 cardValue = {props.birds}
                 onScoreChange = {handleBirdChange} />
 
+            </div>
+            <h1>Foxes</h1>
+            <div key = {"Fox" + props.foxes} class = "page-section">
+                <FoxSet
+                playerCount ={props.players} 
+                cardValue = {props.foxes} 
+                onScoreChange = {handleFoxChange} />
             </div>
         </div>
     )

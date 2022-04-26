@@ -71,7 +71,8 @@ class App extends React.Component {
               bears = {bearVal}
               elk = {elkVal}
               salmon = {salmonVal}
-              birds = {birdVal} />
+              birds = {birdVal}
+              foxes = {foxVal} />
           </div>
       </div>
     );
