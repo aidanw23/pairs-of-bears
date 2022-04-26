@@ -66,10 +66,12 @@ class App extends React.Component {
             <CardSelector cardValue = {foxVal} onCardChange = {this.handleCardChange} name = "foxes" />
           </div>
         </div>
-        <div class= "page-section">
+        <div >
             <ScoreBoard players = {players}
               bears = {bearVal}
-              elk = {elkVal} />
+              elk = {elkVal}
+              salmon = {salmonVal}
+              birds = {birdVal} />
           </div>
       </div>
     );

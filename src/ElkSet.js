@@ -19,7 +19,7 @@ export function ElkSet (props) {
     },[aScore])
 
     function valueChange(elkLengths, player) {
-        console.log(`array ${elkLengths} passed to onValueChange for ${player}`)
+        //console.log(`array ${elkLengths} passed to onValueChange for ${player}`)
         let score = 0;
 
         //functions to calculate score based on array passed of lengths of elk groups
@@ -132,7 +132,6 @@ function Elk (props) {
 
     //hook to pass length to parent if elklength changes
     useEffect (() => {
-        console.log(elkLengths)
         props.onChange(Object.values(elkLengths), props.player)
     }, [elkLengths])
 
