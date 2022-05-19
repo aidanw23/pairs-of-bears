@@ -8,7 +8,7 @@ export function HawkSet (props) {
     },score)
 
     function valueChange (birdAmounts, player) {
-        console.log(`BIRD array ${birdAmounts} passed to valueChange for ${player}, card ${props.cardValue}`)
+        //console.log(`BIRD array ${birdAmounts} passed to valueChange for ${player}, card ${props.cardValue}`)
         let score = 0;
 
         if (props.cardValue === "A") {
@@ -91,7 +91,7 @@ export function HawkSet (props) {
         }
         
         
-        console.log(`score should be ${score}`)
+        //console.log(`score should be ${score}`)
         //switchcase to add score to score array, position in array correlates to player
         switch (player) {
             case "player1":

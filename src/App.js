@@ -8,7 +8,7 @@ class App extends React.Component {
     super(props);
     this.handlePlayerChange = this.handlePlayerChange.bind(this);
     this.handleCardChange = this.handleCardChange.bind(this);
-    this.state = {playerCount: 1, 
+    this.state = {playerCount: "1", 
       bears: "A", elk: "A", salmon: "A", birds: "A" , foxes:"A"}
   }
 

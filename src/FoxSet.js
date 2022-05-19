@@ -8,7 +8,7 @@ export function FoxSet (props) {
     },[score])
 
     function valueChange (foxGroups, player) {
-        console.log(`FOX array ${foxGroups} passed for ${player}`)
+        //console.log(`FOX array ${foxGroups} passed for ${player}`)
         let score = 0;
 
         //if scoring bits
