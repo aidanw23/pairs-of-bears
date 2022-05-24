@@ -17,7 +17,7 @@ export function PlayerSelector (props) {
     return (
         <div class = "box-column">
             <label for ="players">Number of players:</label>
-            <select name="players" id="players" onChange={handleChange}>
+            <select name="players" id="players" onChange={handleChange} >
                 <option value={1}>One</option>
                 <option value={2}>Two</option>
                 <option value={3}>Three</option>
@@ -34,8 +34,8 @@ export function CardSelector (props) {
     }
 
     return (            
-        <div class = "box-column">
-            <form onChange = {handleChange}>
+        <div class = "box-column" >
+            <form onChange = {handleChange} id = "setup-element">
                 <p>{props.name}</p>
                 <input type="radio" value="A" name = {props.name} defaultChecked />
                 <label>A</label><br />

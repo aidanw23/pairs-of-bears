@@ -19,7 +19,6 @@ class App extends React.Component {
   handleCardChange(name, value) {
     this.setState( prevState => ({...prevState, [name] : value }))
   }
-
   
 
   render() {
@@ -31,31 +30,11 @@ class App extends React.Component {
     const foxVal = this.state.foxes;
     return (
       <div className="App">
-        <div class = "page-section">
-          <div id = "AidansStateTracker">
-            <h1>Aidans State Box of Safety</h1>
-            <p>
-              Player Count is set to: {this.state.playerCount}
-            </p>
-            <p>
-              Bear card is set to: {this.state.bears}
-            </p>
-            <p>
-              Elk card is set to: {this.state.elk}
-            </p>
-            <p>
-              Salmon card is set to: {this.state.salmon}
-            </p>
-            <p>
-              Hawk card is set to: {this.state.birds}
-            </p>
-            <p>
-              Fox card is set to: {this.state.foxes}
-            </p>
-          </div>
+        <div class = "page-section" id = "landing">
+          <h1>Casscoria</h1>
+          <p>A casscadia scoring app</p>
         </div>
-        <div class= "page-section">
-        <h1>Setup Box</h1>
+        <div class= "page-section" id = "setup-section">
           <div class="setup-box">
             
             <PlayerSelector players={players} onPlayerChange={this.handlePlayerChange} />

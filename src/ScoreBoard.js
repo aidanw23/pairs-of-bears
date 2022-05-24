@@ -74,7 +74,7 @@ export function ScoreBoard (props) {
 
     return (
         <div>
-            <table>
+            <table className = "scoreTable">
                 <tr>
                     <th>ICON</th>
                     <th>Player 1</th>
@@ -179,9 +179,9 @@ export function ScoreBoard (props) {
                     <td>{grandTotals[1]}</td>
                     <td>{grandTotals[2]}</td>
                     <td>{grandTotals[3]}</td>
-                </tr>
-                
+                </tr>  
             </table>
+
             <h1>Bear-ea</h1>
             <div key =  {"Bear" + props.bears} class= "page-section">           
                 <BearSet 
@@ -190,7 +190,7 @@ export function ScoreBoard (props) {
                 onScoreChange = {handleBearChange} />            
             </div>
             <h1>Elk area</h1>
-            <div key = {"Elk" + props.elk} class= "page-section">
+            <div key = {"Elk" + props.elk} class= "page-section" id = "elk-section">
                 <ElkSet
                 playerCount = {props.players}
                 cardValue = {props.elk}
