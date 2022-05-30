@@ -237,12 +237,7 @@ export function BearSet (props) {
 
     return (
         <div>
-            <p>astate: {aScore}</p>
-            <p>bstate: {bScore}</p>
-            <p>cstate: {cPlayer1} {cPlayer2} {cPlayer3} {cPlayer4}</p>
-            <p>cscore: {cScore}</p>
-            <p>dscore: {dScore}</p>
-            <div class = "animal-box">
+            <div class = "animal-box" id = "bear-box">
                 <Bear player = "player1" card={props.cardValue} onChange = {handleChange} />
                 {props.playerCount >= 2 && <Bear player = "player2" card={props.cardValue}  onChange = {handleChange} />}
                 {props.playerCount >= 3 && <Bear player = "player3" card={props.cardValue}  onChange = {handleChange} />}
@@ -261,7 +256,8 @@ function Bear (props) {
             {props.card === "A" &&
                 <div class = "box-column">
                     <p>How many pairs of bears for {props.player}?</p>
-                    <select name= {props.player + "%bearpairs"} id="bearpairs" onChange = {props.onChange}>
+                    
+                    <select className="animal-select" name= {props.player + "%bearpairs"} id="bearpairs" onChange = {props.onChange}>
                         <option value={0}>No pairs</option>
                         <option value={1}>One</option>
                         <option value={2}>Two</option>
@@ -308,19 +304,19 @@ function Bear (props) {
                 <div class = "box-column">
                     <p>Groups for {props.player}</p>
                     <form>
-                        <label for = "bigGroups2">Groups of two</label>
+                        <label for = "bigGroups2">Groups of two</label> <br/>
                         <input type = "number" 
                         id ="bigGroups2" 
                         name = {props.player +"%bigGroups2"} 
                         onChange = {props.onChange}/><br/>
 
-                        <label for = "bigGroups3">Groups of three</label>
+                        <label for = "bigGroups3">Groups of three</label> <br/>
                         <input type = "number" 
                         id ="bigGroups3" 
                         name = {props.player + "%bigGroups3"} 
                         onChange = {props.onChange}/><br/>
 
-                        <label for = "bigGroups4">Groups of four</label>
+                        <label for = "bigGroups4">Groups of four</label> <br/>
                         <input type = "number" 
                         id ="bigGroups4" 
                         name = {props.player + "%bigGroups4"} 

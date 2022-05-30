@@ -75,121 +75,133 @@ export function ScoreBoard (props) {
     return (
         <div>
             <table className = "scoreTable">
-                <tr>
-                    <th>ICON</th>
-                    <th>Player 1</th>
-                    <th>Player 2</th>
-                    <th>Player 3</th>
-                    <th>Player 4</th>
-                </tr>
-                <tr>
-                    <td>BEARS</td>
-                    <td>{bears[0]}</td>
-                    <td>{bears[1]}</td>
-                    <td>{bears[2]}</td>
-                    <td>{bears[3]}</td>
-                </tr>
-                <tr>
-                    <td>ELKS</td>
-                    <td>{elk[0]}</td>
-                    <td>{elk[1]}</td>
-                    <td>{elk[2]}</td>
-                    <td>{elk[3]}</td>
-                </tr>
-                <tr>
-                    <td>SALMON</td>
-                    <td>{salmon[0]}</td>
-                    <td>{salmon[1]}</td>
-                    <td>{salmon[2]}</td>
-                    <td>{salmon[3]}</td>
-                </tr>
-                <tr>
-                    <td>HAWKS</td>
-                    <td>{birds[0]}</td>
-                    <td>{birds[1]}</td>
-                    <td>{birds[2]}</td>
-                    <td>{birds[3]}</td>
-                </tr>
-                <tr>
-                    <td>FOXES</td>
-                    <td>{foxes[0]}</td>
-                    <td>{foxes[1]}</td>
-                    <td>{foxes[2]}</td>
-                    <td>{foxes[3]}</td>
-                </tr>
-                <tr>
-                    <td>W</td>
-                    <td>{animalTotal[0]}</td>
-                    <td>{animalTotal[1]}</td>
-                    <td>{animalTotal[2]}</td>
-                    <td>{animalTotal[3]}</td>
-                </tr>
-                <tr>
-                    <td>Mountains</td>
-                    <td>{environScores.mountains[0]}</td>
-                    <td>{environScores.mountains[1]}</td>
-                    <td>{environScores.mountains[2]}</td>
-                    <td>{environScores.mountains[3]}</td>
-                </tr>
-                <tr>
-                    <td>Forests</td>
-                    <td>{environScores.forests[0]}</td>
-                    <td>{environScores.forests[1]}</td>
-                    <td>{environScores.forests[2]}</td>
-                    <td>{environScores.forests[3]}</td>
-                </tr>
-                <tr>
-                    <td>prairies</td>
-                    <td>{environScores.prairies[0]}</td>
-                    <td>{environScores.prairies[1]}</td>
-                    <td>{environScores.prairies[2]}</td>
-                    <td>{environScores.prairies[3]}</td>
-                </tr>
-                <tr>
-                    <td>Wetlands</td>
-                    <td>{environScores.wetlands[0]}</td>
-                    <td>{environScores.wetlands[1]}</td>
-                    <td>{environScores.wetlands[2]}</td>
-                    <td>{environScores.wetlands[3]}</td>
-                </tr>
-                <tr>
-                    <td>Rivers</td>
-                    <td>{environScores.rivers[0]}</td>
-                    <td>{environScores.rivers[1]}</td>
-                    <td>{environScores.rivers[2]}</td>
-                    <td>{environScores.rivers[3]}</td>
-                </tr>
-                <tr>
-                    <td>H</td>
-                    <td>{environs[0]}</td>
-                    <td>{environs[1]}</td>
-                    <td>{environs[2]}</td>
-                    <td>{environs[3]}</td>
-                </tr>
-                <tr>
-                    <td>Pinecones</td>
-                    <td>{pinecones[0]}</td>
-                    <td>{pinecones[1]}</td>
-                    <td>{pinecones[2]}</td>
-                    <td>{pinecones[3]}</td>
-                </tr>
-                <tr>
-                    <td>TOTAL</td>
-                    <td>{grandTotals[0]}</td>
-                    <td>{grandTotals[1]}</td>
-                    <td>{grandTotals[2]}</td>
-                    <td>{grandTotals[3]}</td>
-                </tr>  
+                <thead>
+                    <tr>
+                        <th>ICON</th>
+                        <th>Player 1</th>
+                        <th>Player 2</th>
+                        <th>Player 3</th>
+                        <th>Player 4</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>BEARS</td>
+                        <td>{bears[0]}</td>
+                        <td>{bears[1]}</td>
+                        <td>{bears[2]}</td>
+                        <td>{bears[3]}</td>
+                    </tr>
+                    <tr>
+                        <td>ELKS</td>
+                        <td>{elk[0]}</td>
+                        <td>{elk[1]}</td>
+                        <td>{elk[2]}</td>
+                        <td>{elk[3]}</td>
+                    </tr>
+                    <tr>
+                        <td>SALMON</td>
+                        <td>{salmon[0]}</td>
+                        <td>{salmon[1]}</td>
+                        <td>{salmon[2]}</td>
+                        <td>{salmon[3]}</td>
+                    </tr>
+                    <tr>
+                        <td>HAWKS</td>
+                        <td>{birds[0]}</td>
+                        <td>{birds[1]}</td>
+                        <td>{birds[2]}</td>
+                        <td>{birds[3]}</td>
+                    </tr>
+                    <tr>
+                        <td>FOXES</td>
+                        <td>{foxes[0]}</td>
+                        <td>{foxes[1]}</td>
+                        <td>{foxes[2]}</td>
+                        <td>{foxes[3]}</td>
+                    </tr>
+                    <tr>
+                        <td>W</td>
+                        <td>{animalTotal[0]}</td>
+                        <td>{animalTotal[1]}</td>
+                        <td>{animalTotal[2]}</td>
+                        <td>{animalTotal[3]}</td>
+                    </tr>
+                    <tr>
+                        <td>Mountains</td>
+                        <td>{environScores.mountains[0]}</td>
+                        <td>{environScores.mountains[1]}</td>
+                        <td>{environScores.mountains[2]}</td>
+                        <td>{environScores.mountains[3]}</td>
+                    </tr>
+                    <tr>
+                        <td>Forests</td>
+                        <td>{environScores.forests[0]}</td>
+                        <td>{environScores.forests[1]}</td>
+                        <td>{environScores.forests[2]}</td>
+                        <td>{environScores.forests[3]}</td>
+                    </tr>
+                    <tr>
+                        <td>prairies</td>
+                        <td>{environScores.prairies[0]}</td>
+                        <td>{environScores.prairies[1]}</td>
+                        <td>{environScores.prairies[2]}</td>
+                        <td>{environScores.prairies[3]}</td>
+                    </tr>
+                    <tr>
+                        <td>Wetlands</td>
+                        <td>{environScores.wetlands[0]}</td>
+                        <td>{environScores.wetlands[1]}</td>
+                        <td>{environScores.wetlands[2]}</td>
+                        <td>{environScores.wetlands[3]}</td>
+                    </tr>
+                    <tr>
+                        <td>Rivers</td>
+                        <td>{environScores.rivers[0]}</td>
+                        <td>{environScores.rivers[1]}</td>
+                        <td>{environScores.rivers[2]}</td>
+                        <td>{environScores.rivers[3]}</td>
+                    </tr>
+                    <tr>
+                        <td>H</td>
+                        <td>{environs[0]}</td>
+                        <td>{environs[1]}</td>
+                        <td>{environs[2]}</td>
+                        <td>{environs[3]}</td>
+                    </tr>
+                    <tr>
+                        <td>Pinecones</td>
+                        <td>{pinecones[0]}</td>
+                        <td>{pinecones[1]}</td>
+                        <td>{pinecones[2]}</td>
+                        <td>{pinecones[3]}</td>
+                    </tr>
+                </tbody>
+                <tfoot> 
+                    <tr>
+                        <td>TOTAL</td>
+                        <td>{grandTotals[0]}</td>
+                        <td>{grandTotals[1]}</td>
+                        <td>{grandTotals[2]}</td>
+                        <td>{grandTotals[3]}</td>
+                    </tr>
+                </tfoot>
+                 
             </table>
-
-            <h1>Bear-ea</h1>
-            <div key =  {"Bear" + props.bears} class= "page-section">           
-                <BearSet 
+            <div key =  {"Bear" + props.bears} class= "page-section" id = "bear-section">
+                <div class = "fake-banner"></div>           
+                <BearSet class = "bear-box"
                 playerCount = {props.players} 
                 cardValue = {props.bears} 
-                onScoreChange = {handleBearChange} />            
+                onScoreChange = {handleBearChange} />   
+                <div className='banner' id = "bear-banner">
+                    <hr/>
+                    <h2>GRIZZLY BEARS</h2>
+                    <hr id = "text-break"/>
+                    <p>Ursos arctos horribilis</p>
+                </div>         
             </div>
-            <h1>Elk area</h1>
+
             <div key = {"Elk" + props.elk} class= "page-section" id = "elk-section">
                 <ElkSet
                 playerCount = {props.players}

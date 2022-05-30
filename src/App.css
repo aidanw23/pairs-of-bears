@@ -16,6 +16,7 @@
 .animal-box {
   display:flex;
   background-color: rgb(117, 206, 209);
+  min-width: 405;
   width:70%;
   height: 40%;
   flex-direction:row;
@@ -26,17 +27,11 @@
 
 /* BIG STRUCTURE SHIZZ */
 
-.box-column {
-  display: flex;
-  background-color: rgb(160, 190, 132);
-  flex: 1 2 auto;
-  justify-content: center;
-  align-items: center;
-}
+
 
 .page-section {
   background-color:rgb(180, 223, 182);
-  height:80vh;
+  height:100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -106,20 +101,95 @@ select {
   font-family: 'Caveat';
   font-size: 20px;
 }
+
 .scoreTable th {
   font-weight: normal;
   background-color: #ece0d1;
   padding:4px;
   border: solid rgb(65, 52, 39);
   border-width: 1px 1px 3px 1px;
-
-  
-
 }
+
 .scoreTable td {
   padding: 4px;
 }
 
 /*------------------------------------------------*/
 
-/*ANIMALS */
+/* ANIMALS */
+.animal-select {
+  margin-left: 1em;
+}
+
+input {
+  
+}
+
+.box-column {
+  display: flex;
+
+  margin: 1em 1em 1em 1em;
+
+  flex-direction: column;
+  flex: 1 2 auto;
+  
+  justify-content: center;
+  align-items: center;
+}
+
+/* BEARS */
+#bear-section {
+  background-image: url(./media/images/bear-background.svg);
+  background-size: auto 100%; 
+  justify-content: space-between;
+}
+
+#bear-box {
+  display:inline-flex;
+  width: auto;
+  height:auto;
+  
+  margin: auto;
+  padding: 1em 2em 1em 2em;
+
+  background-color: #322312;
+  color:antiquewhite
+}
+
+#bear-banner {
+  height: 15vh;
+  width:100%;
+  background-color: #322312;
+  color: #734e1d;
+  box-shadow:
+}
+
+#bear-banner h2 {
+  font-size: 2em;
+  margin-bottom:0.5em;
+  margin-top: 0.5em;
+}
+
+#bear-banner p {
+  font-size: 1.1em;
+  margin-bottom: 1em;
+}
+
+#bear-banner hr{
+  border:none;
+  background-color: antiquewhite;
+  height: 1px
+}
+
+#bear-banner #text-break {
+  width: 20%;
+  background-color: #734e1d;
+  height:2px;
+  border:none;
+}
+
+/* ELKS */
+#elk-section {
+  background-image: url(./media/images/elk-background.svg);
+  background-size: auto 100%;
+}
