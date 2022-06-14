@@ -110,9 +110,7 @@ export function HawkSet (props) {
 
     return (
         <div>
-            <p>card is : {props.cardValue}</p>
-            <p>score is: {score}</p>
-            <div className = "animal-box">
+            <div className = "animal-box" id="bird-box">
                 <Bird player = "player1" card = {props.cardValue} onChange = {valueChange} />
                 {props.playerCount >= 2 && <Bird player = "player2" card = {props.cardValue} onChange = {valueChange} />}
                 {props.playerCount >= 3 && <Bird player = "player3" card = {props.cardValue} onChange = {valueChange} />}

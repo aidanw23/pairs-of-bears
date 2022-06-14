@@ -112,14 +112,11 @@ export function ElkSet (props) {
     }
 
     return(
-        <div>
-            <p>astate: {aScore}</p>
-            <div class = "animal-box">
-                <Elk player = "player1" card={props.cardValue} onChange = {valueChange} />
-                {props.playerCount >= 2 && <Elk player = "player2" card={props.cardValue} onChange = {valueChange} /> }
-                {props.playerCount >= 3 && <Elk player = "player3" card={props.cardValue} onChange = {valueChange} /> }
-                {props.playerCount >= 4 && <Elk player = "player4" card={props.cardValue} onChange = {valueChange} /> }
-            </div>
+        <div class = "animal-box" id="elk-box">
+            <Elk player = "player1" card={props.cardValue} onChange = {valueChange} />
+            {props.playerCount >= 2 && <Elk player = "player2" card={props.cardValue} onChange = {valueChange} /> }
+            {props.playerCount >= 3 && <Elk player = "player3" card={props.cardValue} onChange = {valueChange} /> }
+            {props.playerCount >= 4 && <Elk player = "player4" card={props.cardValue} onChange = {valueChange} /> }
         </div>
     )
 }

@@ -46,11 +46,10 @@ select {
 /*------------------------------------------------*/
 
 /* LANDING */
+
 #landing {
-  
   background-image: url(./media/images/landing-background.jpg);
   background-size: cover;
-  
 }
 
 #landing h1 {
@@ -114,6 +113,30 @@ select {
   padding: 4px;
 }
 
+.showHideDiv {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  top:30%;
+  z-index: 101;
+  transform: translateY(-100%);
+}
+
+.showHideButton {
+  background-color: rgb(65, 52, 39);
+
+  border: none;
+  color: white;
+  padding: 5px 35px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+
+
+  box-shadow: inset 0 0 5px rgb(44, 44, 44) ;
+}
+
 /*------------------------------------------------*/
 
 /* ANIMALS */
@@ -137,10 +160,38 @@ input {
   align-items: center;
 }
 
+.banner p {
+  font-size: 1.1em;
+  margin-bottom: 1em;
+}
+
+.banner hr{
+  border:none;
+  background-color: antiquewhite;
+  height: 1px
+}
+
+.mid-content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.side-images {
+  height:100px;
+  width:100px;
+}
+.animal-pic{
+  width: 120px;
+  height:auto;
+
+}
+
 /* BEARS */
 #bear-section {
   background-image: url(./media/images/bear-background.svg);
-  background-size: auto 100%; 
+  background-size: cover; 
   justify-content: space-between;
 }
 
@@ -153,7 +204,10 @@ input {
   padding: 1em 2em 1em 2em;
 
   background-color: #322312;
-  color:antiquewhite
+  color:antiquewhite;
+
+  border-radius: 15px;
+  box-shadow: 5px 5px  5px rgb(44, 44, 44) ;
 }
 
 #bear-banner {
@@ -161,24 +215,13 @@ input {
   width:100%;
   background-color: #322312;
   color: #734e1d;
-  box-shadow:
+  box-shadow: 0px 5px  5px rgb(44, 44, 44) ;
 }
 
 #bear-banner h2 {
   font-size: 2em;
   margin-bottom:0.5em;
   margin-top: 0.5em;
-}
-
-#bear-banner p {
-  font-size: 1.1em;
-  margin-bottom: 1em;
-}
-
-#bear-banner hr{
-  border:none;
-  background-color: antiquewhite;
-  height: 1px
 }
 
 #bear-banner #text-break {
@@ -190,6 +233,132 @@ input {
 
 /* ELKS */
 #elk-section {
-  background-image: url(./media/images/elk-background.svg);
-  background-size: auto 100%;
+  background-image: url(./media/images/elk-background-2.svg);
+  background-size: cover; 
+  justify-content: space-between;
+}
+
+#elk-box {
+  display:inline-flex;
+  width: auto;
+  height:auto;
+  
+
+  margin: auto 0px;
+  padding: 1em 2em 1em 2em;
+
+  background-color: #55500b;
+  color:antiquewhite;
+
+  border-radius: 15px;
+  box-shadow: 5px 5px  5px rgb(44, 44, 44) ;
+}
+
+#elk-banner {
+  height: 15vh;
+  width:100%;
+  background-color: #55500b;
+  color: #877921;
+  box-shadow: 0px 5px  5px rgb(44, 44, 44) ;
+}
+
+#elk-banner h2 {
+  font-size: 2em;
+  margin-bottom:0.5em;
+  margin-top: 0.5em;
+}
+
+#elk-banner #text-break {
+  width: 20%;
+  background-color: #877912;
+  height:2px;
+  border:none;
+}
+
+/* SALMON */
+#salmon-section {
+  background-image: url(./media/images/salmon-background.svg);
+  background-size: cover; 
+  justify-content: space-between;
+}
+
+#salmon-box {
+  display:inline-flex;
+  width: auto;
+  height:auto;
+  
+
+  margin: auto 0px;
+  padding: 1em 2em 1em 2em;
+
+  background-color: #3f1724;
+  color:antiquewhite;
+
+  border-radius: 15px;
+  box-shadow: 5px 5px  5px rgb(44, 44, 44) ;
+}
+
+#salmon-banner {
+  height: 15vh;
+  width:100%;
+  background-color: #3f1724;
+  color: #8b1e36;
+  box-shadow: 0px 5px  5px rgb(44, 44, 44) ;
+}
+
+#salmon-banner h2 {
+  font-size: 2em;
+  margin-bottom:0.5em;
+  margin-top: 0.5em;
+}
+
+#salmon-banner #text-break {
+  width: 20%;
+  background-color: #8b1e36;
+  height:2px;
+  border:none;
+}
+
+/* BIRD */
+#bird-section {
+  background-image: url(./media/images/bird-background.svg);
+  background-size: cover; 
+  justify-content: space-between;
+}
+
+#bird-box {
+  display:inline-flex;
+  width: auto;
+  height:auto;
+  
+
+  margin: auto 0px;
+  padding: 1em 2em 1em 2em;
+
+  background-color: #1d383d;
+  color:antiquewhite;
+
+  border-radius: 15px;
+  box-shadow: 5px 5px  5px rgb(44, 44, 44) ;
+}
+
+#bird-banner {
+  height: 15vh;
+  width:100%;
+  background-color: #1d383d;
+  color: #589bb6;
+  box-shadow: 0px 5px  5px rgb(44, 44, 44) ;
+}
+
+#bird-banner h2 {
+  font-size: 2em;
+  margin-bottom:0.5em;
+  margin-top: 0.5em;
+}
+
+#bird-banner #text-break {
+  width: 20%;
+  background-color: #589bb6;
+  height:2px;
+  border:none;
 }

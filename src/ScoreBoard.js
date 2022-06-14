@@ -6,6 +6,7 @@ import { HawkSet } from './HawkSet'
 import { FoxSet } from './FoxSet';
 import { EnvironSet } from './EnvironsSet';
 import { PineconeSetter } from './PineconeSetter';
+import { ShowButton, HideButton } from './showhide';
 
 
 //functional component that renders all the scoring elements and collects their states to track score
@@ -23,6 +24,7 @@ export function ScoreBoard (props) {
     const [environScores, setEnvironScores] = useState({"mountains": [0,0,0,0], "forests": [0,0,0,0], "prairies": [0,0,0,0], "wetlands": [0,0,0,0], "rivers": [0,0,0,0]})
     const [pinecones, setPinecones] = useState([])
     const [grandTotals, setGrandTotals] = useState([])
+    const [showBoard, setShowBoard] = useState(false)
 
     useEffect(() => {
         const p1 = bears[0] + elk[0] + salmon [0] + birds[0] + foxes[0]
@@ -72,122 +74,139 @@ export function ScoreBoard (props) {
         setPinecones([score[0], score[1], score[2], score[3]])
     }
 
+    function handleBoardChange () {
+        if (showBoard === true) { 
+            setShowBoard(false) 
+        } else if (showBoard === false) {
+            setShowBoard(true) 
+        }
+    }
+
     return (
         <div>
-            <table className = "scoreTable">
-                <thead>
-                    <tr>
-                        <th>ICON</th>
-                        <th>Player 1</th>
-                        <th>Player 2</th>
-                        <th>Player 3</th>
-                        <th>Player 4</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>BEARS</td>
-                        <td>{bears[0]}</td>
-                        <td>{bears[1]}</td>
-                        <td>{bears[2]}</td>
-                        <td>{bears[3]}</td>
-                    </tr>
-                    <tr>
-                        <td>ELKS</td>
-                        <td>{elk[0]}</td>
-                        <td>{elk[1]}</td>
-                        <td>{elk[2]}</td>
-                        <td>{elk[3]}</td>
-                    </tr>
-                    <tr>
-                        <td>SALMON</td>
-                        <td>{salmon[0]}</td>
-                        <td>{salmon[1]}</td>
-                        <td>{salmon[2]}</td>
-                        <td>{salmon[3]}</td>
-                    </tr>
-                    <tr>
-                        <td>HAWKS</td>
-                        <td>{birds[0]}</td>
-                        <td>{birds[1]}</td>
-                        <td>{birds[2]}</td>
-                        <td>{birds[3]}</td>
-                    </tr>
-                    <tr>
-                        <td>FOXES</td>
-                        <td>{foxes[0]}</td>
-                        <td>{foxes[1]}</td>
-                        <td>{foxes[2]}</td>
-                        <td>{foxes[3]}</td>
-                    </tr>
-                    <tr>
-                        <td>W</td>
-                        <td>{animalTotal[0]}</td>
-                        <td>{animalTotal[1]}</td>
-                        <td>{animalTotal[2]}</td>
-                        <td>{animalTotal[3]}</td>
-                    </tr>
-                    <tr>
-                        <td>Mountains</td>
-                        <td>{environScores.mountains[0]}</td>
-                        <td>{environScores.mountains[1]}</td>
-                        <td>{environScores.mountains[2]}</td>
-                        <td>{environScores.mountains[3]}</td>
-                    </tr>
-                    <tr>
-                        <td>Forests</td>
-                        <td>{environScores.forests[0]}</td>
-                        <td>{environScores.forests[1]}</td>
-                        <td>{environScores.forests[2]}</td>
-                        <td>{environScores.forests[3]}</td>
-                    </tr>
-                    <tr>
-                        <td>prairies</td>
-                        <td>{environScores.prairies[0]}</td>
-                        <td>{environScores.prairies[1]}</td>
-                        <td>{environScores.prairies[2]}</td>
-                        <td>{environScores.prairies[3]}</td>
-                    </tr>
-                    <tr>
-                        <td>Wetlands</td>
-                        <td>{environScores.wetlands[0]}</td>
-                        <td>{environScores.wetlands[1]}</td>
-                        <td>{environScores.wetlands[2]}</td>
-                        <td>{environScores.wetlands[3]}</td>
-                    </tr>
-                    <tr>
-                        <td>Rivers</td>
-                        <td>{environScores.rivers[0]}</td>
-                        <td>{environScores.rivers[1]}</td>
-                        <td>{environScores.rivers[2]}</td>
-                        <td>{environScores.rivers[3]}</td>
-                    </tr>
-                    <tr>
-                        <td>H</td>
-                        <td>{environs[0]}</td>
-                        <td>{environs[1]}</td>
-                        <td>{environs[2]}</td>
-                        <td>{environs[3]}</td>
-                    </tr>
-                    <tr>
-                        <td>Pinecones</td>
-                        <td>{pinecones[0]}</td>
-                        <td>{pinecones[1]}</td>
-                        <td>{pinecones[2]}</td>
-                        <td>{pinecones[3]}</td>
-                    </tr>
-                </tbody>
-                <tfoot> 
-                    <tr>
-                        <td>TOTAL</td>
-                        <td>{grandTotals[0]}</td>
-                        <td>{grandTotals[1]}</td>
-                        <td>{grandTotals[2]}</td>
-                        <td>{grandTotals[3]}</td>
-                    </tr>
-                </tfoot>
-                 
-            </table>
+            
+            <div class="score-table-div">
+                <div class = "showHideDiv">
+                    {showBoard === false && <ShowButton class = "showHideButton" onChange = {handleBoardChange} />}
+                    {showBoard === true && <HideButton class = "showHideButton" onChange = {handleBoardChange} />}
+                </div>
+                {showBoard === true &&  
+                <table className = "scoreTable">
+                    <thead>
+                        <tr>
+                            <th>ICON</th>
+                            <th>Player 1</th>
+                            <th>Player 2</th>
+                            <th>Player 3</th>
+                            <th>Player 4</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>BEARS</td>
+                            <td>{bears[0]}</td>
+                            <td>{bears[1]}</td>
+                            <td>{bears[2]}</td>
+                            <td>{bears[3]}</td>
+                        </tr>
+                        <tr>
+                            <td>ELKS</td>
+                            <td>{elk[0]}</td>
+                            <td>{elk[1]}</td>
+                            <td>{elk[2]}</td>
+                            <td>{elk[3]}</td>
+                        </tr>
+                        <tr>
+                            <td>SALMON</td>
+                            <td>{salmon[0]}</td>
+                            <td>{salmon[1]}</td>
+                            <td>{salmon[2]}</td>
+                            <td>{salmon[3]}</td>
+                        </tr>
+                        <tr>
+                            <td>HAWKS</td>
+                            <td>{birds[0]}</td>
+                            <td>{birds[1]}</td>
+                            <td>{birds[2]}</td>
+                            <td>{birds[3]}</td>
+                        </tr>
+                        <tr>
+                            <td>FOXES</td>
+                            <td>{foxes[0]}</td>
+                            <td>{foxes[1]}</td>
+                            <td>{foxes[2]}</td>
+                            <td>{foxes[3]}</td>
+                        </tr>
+                        <tr>
+                            <td>W</td>
+                            <td>{animalTotal[0]}</td>
+                            <td>{animalTotal[1]}</td>
+                            <td>{animalTotal[2]}</td>
+                            <td>{animalTotal[3]}</td>
+                        </tr>
+                        <tr>
+                            <td>Mountains</td>
+                            <td>{environScores.mountains[0]}</td>
+                            <td>{environScores.mountains[1]}</td>
+                            <td>{environScores.mountains[2]}</td>
+                            <td>{environScores.mountains[3]}</td>
+                        </tr>
+                        <tr>
+                            <td>Forests</td>
+                            <td>{environScores.forests[0]}</td>
+                            <td>{environScores.forests[1]}</td>
+                            <td>{environScores.forests[2]}</td>
+                            <td>{environScores.forests[3]}</td>
+                        </tr>
+                        <tr>
+                            <td>prairies</td>
+                            <td>{environScores.prairies[0]}</td>
+                            <td>{environScores.prairies[1]}</td>
+                            <td>{environScores.prairies[2]}</td>
+                            <td>{environScores.prairies[3]}</td>
+                        </tr>
+                        <tr>
+                            <td>Wetlands</td>
+                            <td>{environScores.wetlands[0]}</td>
+                            <td>{environScores.wetlands[1]}</td>
+                            <td>{environScores.wetlands[2]}</td>
+                            <td>{environScores.wetlands[3]}</td>
+                        </tr>
+                        <tr>
+                            <td>Rivers</td>
+                            <td>{environScores.rivers[0]}</td>
+                            <td>{environScores.rivers[1]}</td>
+                            <td>{environScores.rivers[2]}</td>
+                            <td>{environScores.rivers[3]}</td>
+                        </tr>
+                        <tr>
+                            <td>H</td>
+                            <td>{environs[0]}</td>
+                            <td>{environs[1]}</td>
+                            <td>{environs[2]}</td>
+                            <td>{environs[3]}</td>
+                        </tr>
+                        <tr>
+                            <td>Pinecones</td>
+                            <td>{pinecones[0]}</td>
+                            <td>{pinecones[1]}</td>
+                            <td>{pinecones[2]}</td>
+                            <td>{pinecones[3]}</td>
+                        </tr>
+                    </tbody>
+                    <tfoot> 
+                        <tr>
+                            <td>TOTAL</td>
+                            <td>{grandTotals[0]}</td>
+                            <td>{grandTotals[1]}</td>
+                            <td>{grandTotals[2]}</td>
+                            <td>{grandTotals[3]}</td>
+                        </tr>
+                    </tfoot>
+                </table>}  
+            </div>
+
+
             <div key =  {"Bear" + props.bears} class= "page-section" id = "bear-section">
                 <div class = "fake-banner"></div>           
                 <BearSet class = "bear-box"
@@ -203,26 +222,50 @@ export function ScoreBoard (props) {
             </div>
 
             <div key = {"Elk" + props.elk} class= "page-section" id = "elk-section">
-                <ElkSet
-                playerCount = {props.players}
-                cardValue = {props.elk}
-                onScoreChange = {handleElkChange} />
+                <div class = "fake-banner"></div>
+                
+                 
+                    <ElkSet class = "elk-box"
+                    playerCount = {props.players}
+                    cardValue = {props.elk}
+                    onScoreChange = {handleElkChange} />
+                
+                <div className='banner' id = "elk-banner">
+                    <hr/>
+                    <h2>ROOSEVELT ELK</h2>
+                    <hr id = "text-break"/>
+                    <p>Cervus canadensis roosevelti</p>
+                </div>   
             </div>
-            <h1>Salmon Zone</h1>
-            <div key = {"Salmon" + props.salmon} class = "page-section">
-                <SalmonSet 
+
+            <div key = {"Salmon" + props.salmon} class = "page-section" id ="salmon-section">
+                <div class = "fake-banner"></div>
+                <SalmonSet class = "salmon-box"
                 playerCount = {props.players}
                 cardValue = {props.salmon}
                 onScoreChange = {handleSalmonChange} />
+                <div className="banner" id="salmon-banner">
+                    <hr/>
+                    <h2>CHINOOK SALMON</h2>
+                    <hr id = "text-break"/>
+                    <p>Oncorhynchus tshawytscha</p>
+                </div>
             </div>
-            <h1>CA CAW</h1>
-            <div key = {"Hawk" + props.birds} class = "page-section">
-                <HawkSet 
+
+            <div key = {"Hawk" + props.birds} class = "page-section" id="bird-section">
+                <div class = "fake-banner"></div>
+                <HawkSet class = "bird-box"
                 playerCount = {props.players}
                 cardValue = {props.birds}
                 onScoreChange = {handleBirdChange} />
-
+                <div className="banner" id="bird-banner">
+                    <hr/>
+                    <h2>RED-TAILED HAWK</h2>
+                    <hr id = "text-break"/>
+                    <p>Buteo jamaicensis</p>
+                </div>
             </div>
+
             <h1>Foxes</h1>
             <div key = {"Fox" + props.foxes} class = "page-section">
                 <FoxSet
