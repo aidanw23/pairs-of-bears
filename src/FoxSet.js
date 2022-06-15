@@ -89,8 +89,7 @@ export function FoxSet (props) {
 
     return (
         <div>
-            <p>score: {score}</p>
-            <div className = "animal-box">
+            <div className = "animal-box" id="fox-box">
                 <Fox player = "player1" card={props.cardValue} onChange = {valueChange} />
                 {props.playerCount >= 2 && <Fox player = "player2" card={props.cardValue} onChange = {valueChange} />}
                 {props.playerCount >= 3 && <Fox player = "player3" card={props.cardValue} onChange = {valueChange} />}

@@ -32,7 +32,7 @@ class App extends React.Component {
       <div className="App">
         <div class = "page-section" id = "landing">
           <h1>Casscoria</h1>
-          <p>A casscadia scoring app</p>
+          <p>A fanmade casscadia scoring app</p>
         </div>
         <div class= "page-section" id = "setup-section">
           <div class="setup-box">

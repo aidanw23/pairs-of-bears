@@ -56,12 +56,26 @@ select {
   font-size: 5em;
   text-shadow: -3px 3px #3a3838;
   color: #ffffff;
+  animation-name: landing-fade;
+  animation-duration: 4s;
 }
 
 #landing p {
   font-size: 2em;
   color: #ffffff;
   text-shadow: -3px 3px #3a3838;
+  animation-name: landing-fade;
+  animation-duration: 4s;
+}
+
+@keyframes landing-fade {
+  from {
+    opacity: 0%;
+  }
+
+  to {
+    opacity: 100%;
+  }
 }
 
 /*------------------------------------------------*/
@@ -69,11 +83,16 @@ select {
 /* SETUP */
 .setup-box {
   display:flex;
-  background-color: rgb(117, 206, 209);
+  background-color: rgb(141, 102, 129);
+
   width:60%;
   height: 40%;
+
   flex-direction:row;
   align-items:row;
+
+  border-radius: 15px;
+  box-shadow: 5px 5px  5px rgb(44, 44, 44) ;
 }
 
 #players {
@@ -110,7 +129,8 @@ select {
 }
 
 .scoreTable td {
-  padding: 4px;
+  padding: 1px;
+  text-align: center;
 }
 
 .showHideDiv {
@@ -132,9 +152,25 @@ select {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-
-
   box-shadow: inset 0 0 5px rgb(44, 44, 44) ;
+}
+
+#score-icon {
+  display:inline;
+  justify-content: center;
+  align-items: center;
+
+  height: 1.5em;
+  width: 1.5em;
+}
+
+#environ-icon{
+  display:inline;
+  justify-content: center;
+  align-items: center;
+
+  height: 1.5em;
+  width: 1.8em;
 }
 
 /*------------------------------------------------*/
@@ -361,4 +397,100 @@ input {
   background-color: #589bb6;
   height:2px;
   border:none;
+}
+
+/* FOX */
+#fox-section {
+  background-image: url(./media/images/fox-background.svg);
+  background-size: cover; 
+  justify-content: space-between;
+}
+
+#fox-box {
+  display:inline-flex;
+  width: auto;
+  height:auto;
+  
+
+  margin: auto 0px;
+  padding: 1em 2em 1em 2em;
+
+  background-color: #5f390e;
+  color:antiquewhite;
+
+  border-radius: 15px;
+  box-shadow: 5px 5px  5px rgb(44, 44, 44) ;
+}
+
+#fox-banner {
+  height: 15vh;
+  width:100%;
+  background-color: #5f390e;
+  color: #be7a12;
+  box-shadow: 0px 5px  5px rgb(44, 44, 44) ;
+}
+
+#fox-banner h2 {
+  font-size: 2em;
+  margin-bottom:0.5em;
+  margin-top: 0.5em;
+}
+
+#fox-banner #text-break {
+  width: 20%;
+  background-color: #be7a12;
+  height:2px;
+  border:none;
+}
+
+/* ------------------------------------- */
+/* Environments */
+
+.environ-box {
+  display:flex;
+  flex-direction: column;
+  width: auto;
+  height:auto;
+  
+
+  margin: auto 0px;
+  padding: 1em 2em 1em 2em;
+
+  background-color: #5f390e;
+  color:antiquewhite;
+
+  border-radius: 15px;
+  box-shadow: 5px 5px  5px rgb(44, 44, 44) ;
+}
+
+.total {
+  margin-top: 2em;
+}
+
+.environ-box input {
+  margin-left: 1em;
+  margin-right: 1em;
+}
+
+/*Pinecones*/
+.pinecone-box {
+  display:block;
+  flex-direction:row;
+  width: auto;
+  height:auto;
+  
+
+  margin: auto 0px;
+  padding: 1em 2em 1em 2em;
+
+  background-color: #5f390e;
+  color:antiquewhite;
+
+  border-radius: 15px;
+  box-shadow: 5px 5px  5px rgb(44, 44, 44) ;
+}
+
+.pinecone-box input {
+  margin-left: 1em;
+  margin-right: 1em;
 }

@@ -49,28 +49,32 @@ export function EnvironSet (props) {
 
     const mountains = score.mountains
     return (
-        <div>
-            <p>mountains: {mountains}</p>
-            <p>forests: {score.forests}</p>
-            <p>prairies: {score.prairies}</p>
-            <p>wetlands: {score.wetlands}</p>
-            <p>rivers: {score.rivers}</p>
+        <div class = "environ-box">
             <Environ playerCount = {props.playerCount}
             name = "mountains"
+            title = "Mountains"
             onScoreChange = {scoreChange} />
             <Environ playerCount = {props.playerCount}
             name = "forests"
+            title = "Forests"
+            class = "environ"
             onScoreChange = {scoreChange} />
             <Environ playerCount = {props.playerCount}
             name = "prairies"
+            title = "Prairies"
+            class = "environ"
             onScoreChange = {scoreChange} />
             <Environ playerCount = {props.playerCount}
             name = "wetlands"
+            title = "Wetlands"
+            class = "environ"
             onScoreChange = {scoreChange} />
             <Environ playerCount = {props.playerCount}
             name = "rivers"
+            title = "Rivers"
+            class = "environ"
             onScoreChange = {scoreChange} />
-            <button onClick = {confirmTotal}>Total</button>
+            <button class = "total" onClick = {confirmTotal}>Total</button>
         </div>
     )
 }
@@ -200,8 +204,8 @@ function Environ (props) {
     }
 
     return (
-        <div>
-            <p>{props.name}</p>
+        <div class = "environ">
+            <p>{props.title}</p>
             <input type = "number"
             name = {props.name + "1"}
             onChange =  {environChange}

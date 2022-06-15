@@ -11,42 +11,46 @@ export function PineconeSetter (props) {
         
         switch(e.target.name) {
             case "1pinecone":
-                setPinecones(prev => [e.target.value, prev[1],prev[2],prev[3]])
+                setPinecones(prev => [parseInt(e.target.value), prev[1],prev[2],prev[3]])
                 break;
             case "2pinecone":
-                setPinecones(prev => [prev[0], e.target.value,prev[2],prev[3]])
+                setPinecones(prev => [prev[0], parseInt(e.target.value),prev[2],prev[3]])
                 break;
             case "3pinecone":
-                setPinecones(prev => [prev[0], prev[1],e.target.value,prev[3]])
+                setPinecones(prev => [prev[0], prev[1],parseInt(e.target.value),prev[3]])
                 break;
             case "4pinecone":
-                setPinecones(prev => [prev[0], prev[1],prev[2],e.target.value])
+                setPinecones(prev => [prev[0], prev[1],prev[2],parseInt(e.target.value)])
         }
         
     }
 
     return (
-        <div>
-            <p>Pinecones?</p>
-            <input type="number"
-            name = "1pinecone"
-            onChange = {pineconeChange}
-            defaultValue ={0} />
-            {props.playerCount >= 2 && 
-            <input type="number"
-            name = "2pinecone"
-            onChange = {pineconeChange}
-            defaultValue ={0} />}
-            {props.playerCount >= 3 && 
-            <input type="number"
-            name = "3pinecone"
-            onChange = {pineconeChange}
-            defaultValue ={0} />}
-            {props.playerCount == 4 && 
-            <input type="number"
-            name = "4pinecone"
-            onChange = {pineconeChange}
-            defaultValue ={0} />}
+        <div class = "pinecone-box">
+            <div>
+                <p>Pinecones?</p>
+            </div>
+            <div>
+                <input type="number"
+                name = "1pinecone"
+                onChange = {pineconeChange}
+                defaultValue ={0} />
+                {props.playerCount >= 2 && 
+                <input type="number"
+                name = "2pinecone"
+                onChange = {pineconeChange}
+                defaultValue ={0} />}
+                {props.playerCount >= 3 && 
+                <input type="number"
+                name = "3pinecone"
+                onChange = {pineconeChange}
+                defaultValue ={0} />}
+                {props.playerCount == 4 && 
+                <input type="number"
+                name = "4pinecone"
+                onChange = {pineconeChange}
+                defaultValue ={0} />}
+            </div>
         </div>
     )
 }

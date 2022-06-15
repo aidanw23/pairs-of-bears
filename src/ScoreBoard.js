@@ -24,7 +24,7 @@ export function ScoreBoard (props) {
     const [environScores, setEnvironScores] = useState({"mountains": [0,0,0,0], "forests": [0,0,0,0], "prairies": [0,0,0,0], "wetlands": [0,0,0,0], "rivers": [0,0,0,0]})
     const [pinecones, setPinecones] = useState([])
     const [grandTotals, setGrandTotals] = useState([])
-    const [showBoard, setShowBoard] = useState(false)
+    const [showBoard, setShowBoard] = useState(true)
 
     useEffect(() => {
         const p1 = bears[0] + elk[0] + salmon [0] + birds[0] + foxes[0]
@@ -68,6 +68,7 @@ export function ScoreBoard (props) {
     function handleEnvironChange (totals,scores) {
         setEnvirons ([totals[0], totals[1], totals[2], totals[3]])
         setEnvironScores(scores)
+        console.log(scores)
     }
 
     function handlePineconeChange (score) {
@@ -94,7 +95,7 @@ export function ScoreBoard (props) {
                 <table className = "scoreTable">
                     <thead>
                         <tr>
-                            <th>ICON</th>
+                            <th></th>
                             <th>Player 1</th>
                             <th>Player 2</th>
                             <th>Player 3</th>
@@ -103,84 +104,84 @@ export function ScoreBoard (props) {
                     </thead>
                     <tbody>
                         <tr>
-                            <td>BEARS</td>
+                            <td><img id = "score-icon" src={require("./media/icons/bear_icon.png")} alt = "Bears"/></td>
                             <td>{bears[0]}</td>
                             <td>{bears[1]}</td>
                             <td>{bears[2]}</td>
                             <td>{bears[3]}</td>
                         </tr>
                         <tr>
-                            <td>ELKS</td>
+                            <td><img id = "score-icon" src={require("./media/icons/elk_icon.png")} alt = "Elk"/></td>
                             <td>{elk[0]}</td>
                             <td>{elk[1]}</td>
                             <td>{elk[2]}</td>
                             <td>{elk[3]}</td>
                         </tr>
                         <tr>
-                            <td>SALMON</td>
+                            <td><img id = "score-icon" src={require("./media/icons/salmon_icon.png")} alt = "Salmon"/></td>
                             <td>{salmon[0]}</td>
                             <td>{salmon[1]}</td>
                             <td>{salmon[2]}</td>
                             <td>{salmon[3]}</td>
                         </tr>
                         <tr>
-                            <td>HAWKS</td>
+                            <td><img id = "score-icon" src={require("./media/icons/hawk_icon.png")} alt = "Hawk"/></td>
                             <td>{birds[0]}</td>
                             <td>{birds[1]}</td>
                             <td>{birds[2]}</td>
                             <td>{birds[3]}</td>
                         </tr>
                         <tr>
-                            <td>FOXES</td>
+                            <td><img id = "score-icon" src={require("./media/icons/fox_icon.png")} alt = "Foxes"/></td>
                             <td>{foxes[0]}</td>
                             <td>{foxes[1]}</td>
                             <td>{foxes[2]}</td>
                             <td>{foxes[3]}</td>
                         </tr>
                         <tr>
-                            <td>W</td>
+                            <td>---</td>
                             <td>{animalTotal[0]}</td>
                             <td>{animalTotal[1]}</td>
                             <td>{animalTotal[2]}</td>
                             <td>{animalTotal[3]}</td>
                         </tr>
                         <tr>
-                            <td>Mountains</td>
+                            <td><img id = "environ-icon" src={require("./media/icons/mountain_icon.png")} alt = "Mountains"/></td>
                             <td>{environScores.mountains[0]}</td>
                             <td>{environScores.mountains[1]}</td>
                             <td>{environScores.mountains[2]}</td>
                             <td>{environScores.mountains[3]}</td>
                         </tr>
                         <tr>
-                            <td>Forests</td>
+                            <td><img id = "environ-icon" src={require("./media/icons/forest_icon.png")} alt = "Forests"/></td>
                             <td>{environScores.forests[0]}</td>
                             <td>{environScores.forests[1]}</td>
                             <td>{environScores.forests[2]}</td>
                             <td>{environScores.forests[3]}</td>
                         </tr>
                         <tr>
-                            <td>prairies</td>
+                            <td><img id = "environ-icon" src={require("./media/icons/prairie_icon.png")} alt = "Prairie"/></td>
                             <td>{environScores.prairies[0]}</td>
                             <td>{environScores.prairies[1]}</td>
                             <td>{environScores.prairies[2]}</td>
                             <td>{environScores.prairies[3]}</td>
                         </tr>
                         <tr>
-                            <td>Wetlands</td>
+                            <td><img id = "environ-icon" src={require("./media/icons/wetland_icon.png")} alt = "Wetland"/></td>
                             <td>{environScores.wetlands[0]}</td>
                             <td>{environScores.wetlands[1]}</td>
                             <td>{environScores.wetlands[2]}</td>
                             <td>{environScores.wetlands[3]}</td>
                         </tr>
                         <tr>
-                            <td>Rivers</td>
+                            <td><img id = "environ-icon" src={require("./media/icons/river_icon.png")} alt = "Rivers"/></td>
                             <td>{environScores.rivers[0]}</td>
                             <td>{environScores.rivers[1]}</td>
                             <td>{environScores.rivers[2]}</td>
                             <td>{environScores.rivers[3]}</td>
                         </tr>
                         <tr>
-                            <td>H</td>
+                            <td>---</td>
                             <td>{environs[0]}</td>
                             <td>{environs[1]}</td>
                             <td>{environs[2]}</td>
@@ -266,20 +267,24 @@ export function ScoreBoard (props) {
                 </div>
             </div>
 
-            <h1>Foxes</h1>
-            <div key = {"Fox" + props.foxes} class = "page-section">
+            <div key = {"Fox" + props.foxes} class = "page-section" id="fox-section">
+                <div class = "fake-banner"></div>
                 <FoxSet
                 playerCount ={props.players} 
                 cardValue = {props.foxes} 
                 onScoreChange = {handleFoxChange} />
+                <div className="banner" id="fox-banner">
+                    <hr/>
+                    <h2>RED FOX</h2>
+                    <hr id = "text-break"/>
+                    <p>Vulpes vulpes</p>
+                </div>
             </div>
-            <h1>Environments</h1>
+
             <div className='page-section'>
                 <EnvironSet 
                 playerCount ={props.players}
                 onTotalChange = {handleEnvironChange} />
-            </div>
-            <div>
                 <PineconeSetter 
                 playerCount = {props.players}
                 onScoreChange = {handlePineconeChange}
