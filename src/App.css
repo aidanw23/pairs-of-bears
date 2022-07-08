@@ -495,7 +495,8 @@ input {
 @media only screen and (max-width: 768px) {
 
   .page-section{
-    height:120vh;
+    height:140vh;
+    min-height: 130vh;
   }
   .box-column {
     display: flex;
@@ -608,5 +609,13 @@ input {
 
   #fox-banner {
     height: 20vh;
+  }
+
+  .scoreTable {
+    top:10%;
+  }
+
+  .showHideDiv {
+    top:10%;
   }
 }
